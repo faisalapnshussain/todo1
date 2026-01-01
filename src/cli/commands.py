@@ -1,11 +1,17 @@
 """CLI commands for the Todo application using Typer."""
 
 import sys
+import io
 from typing import Optional
 import typer
 from src.models.todo_list import TodoList
 from src.cli.formatter import Formatter
 from src.utils.errors import TaskNotFoundError, ValidationError
+
+# Ensure UTF-8 output on Windows
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # Global TodoList instance (in-memory storage)
 todo_list = TodoList()

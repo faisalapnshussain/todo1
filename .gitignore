@@ -32,6 +32,9 @@ env/
 uv.lock
 .uv/
 
+# Todo data file
+.todo_data.json
+
 # IDEs
 .vscode/
 .idea/
