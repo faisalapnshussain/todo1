@@ -1,14 +1,13 @@
 <!--
 Sync Impact Report:
-- Version change: 0.0.0 (initial) → 1.0.0
-- New constitution created for CLI Todo List (In-Memory)
-- Principles defined: 5 core principles
-- Sections added: Core Principles, Code Quality Standards, Development Workflow, Governance
+- Version change: 1.0.0 → 1.0.1
+- Amendment: Added UV as Python environment and package manager
+- Modified sections: Code Quality Standards, Development Workflow
 - Templates requiring updates:
   ✅ .specify/templates/plan-template.md (reviewed - compatible)
   ✅ .specify/templates/spec-template.md (reviewed - compatible)
   ✅ .specify/templates/tasks-template.md (reviewed - compatible)
-- Follow-up TODOs: None - all placeholders filled
+- Follow-up TODOs: None
 -->
 
 # CLI Todo List (In-Memory) Constitution
@@ -41,11 +40,18 @@ Each core feature (Add, Delete, Update, View, Mark Complete) MUST be implemented
 
 ### V. Clean Code & Python Standards
 
-All code MUST follow Python 3.13+ standards and PEP 8 style guidelines. Code must be readable, well-structured, and maintainable. Functions have clear names and single responsibilities. Magic numbers and unclear logic are documented with comments. Type hints are encouraged for function signatures.
+All code MUST follow Python 3.13+ standards and PEP 8 style guidelines. Code must be readable, well-structured, and maintainable. Functions have clear names and single responsibilities. Magic numbers and unclear logic are documented with comments. Type hints are encouraged for function signatures. The project uses UV as the Python environment and package manager for dependency management and project execution.
 
-**Rationale**: Ensures codebase quality, reduces technical debt, makes code accessible to Python developers, facilitates code review.
+**Rationale**: Ensures codebase quality, reduces technical debt, makes code accessible to Python developers, facilitates code review. UV provides fast, reliable Python package management and environment isolation.
 
 ## Code Quality Standards
+
+**Python Environment**:
+- UV is the required Python environment and package manager for this project
+- All dependencies managed via `pyproject.toml` and `uv.lock`
+- Run application using `uv run` commands
+- Initialize project with `uv init` if not already done
+- Add dependencies with `uv add <package-name>`
 
 **Testing Discipline**:
 - Manual testing required for all features before considering them complete
@@ -92,6 +98,8 @@ All code MUST follow Python 3.13+ standards and PEP 8 style guidelines. Code mus
     /<feature-name>/    # Feature-specific prompts
   /adr/                 # Architecture Decision Records
 
+pyproject.toml          # UV project configuration and dependencies
+uv.lock                 # UV lockfile for reproducible installs
 README.md               # Project overview and usage
 CLAUDE.md               # AI assistant instructions
 ```
@@ -133,4 +141,4 @@ This constitution supersedes all other development practices and conventions for
 - ADRs are never auto-created; require user consent via `/sp.adr` command
 - Example decisions warranting ADRs: data structure choices, CLI framework selection, error handling strategy
 
-**Version**: 1.0.0 | **Ratified**: 2026-01-01 | **Last Amended**: 2026-01-01
+**Version**: 1.0.1 | **Ratified**: 2026-01-01 | **Last Amended**: 2026-01-01
