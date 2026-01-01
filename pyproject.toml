@@ -1,0 +1,21 @@
+[project]
+name = "todo1"
+version = "0.1.0"
+description = "CLI Todo List - In-memory task management application"
+requires-python = ">=3.13"
+dependencies = [
+    "typer>=0.21.0",
+]
+
+[project.scripts]
+todo = "src.cli.commands:app"
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
